@@ -50,6 +50,120 @@ nav{background:rgba(10,15,30,.97);backdrop-filter:blur(20px);border-bottom:1px s
 .page.active{display:block;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
 
+/* ── ADMIN LOGIN PAGE ── */
+.admin-login-wrap{min-height:calc(100vh - 96px);background:var(--ink);display:flex;align-items:center;justify-content:center;padding:40px 4vw;position:relative;overflow:hidden;}
+.admin-login-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 20% 50%,rgba(20,71,230,.18) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 80% 50%,rgba(6,182,212,.1) 0%,transparent 60%);pointer-events:none;}
+.admin-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;}
+.admin-login-card{position:relative;z-index:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:48px 44px;width:100%;max-width:440px;backdrop-filter:blur(20px);}
+.admin-login-logo{display:flex;align-items:center;gap:10px;margin-bottom:32px;}
+.admin-login-logo-icon{width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;flex-shrink:0;}
+.admin-login-logo-text{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;color:#fff;letter-spacing:.04em;line-height:1.2;}
+.admin-login-logo-text span{color:var(--gold2);font-size:10px;font-weight:600;letter-spacing:.1em;display:block;}
+.admin-login-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.admin-login-kicker::before{content:'';width:16px;height:1.5px;background:currentColor;}
+.admin-login-title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:#fff;margin-bottom:6px;}
+.admin-login-sub{font-size:13px;color:rgba(255,255,255,.35);margin-bottom:32px;}
+.admin-form-group{margin-bottom:20px;}
+.admin-form-label{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:8px;}
+.admin-form-input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 16px;font-size:14px;color:#fff;font-family:'Outfit',sans-serif;transition:all .2s;outline:none;}
+.admin-form-input::placeholder{color:rgba(255,255,255,.2);}
+.admin-form-input:focus{border-color:var(--blue2);background:rgba(20,71,230,.08);box-shadow:0 0 0 3px rgba(20,71,230,.15);}
+.admin-form-input.error{border-color:#ef4444;background:rgba(239,68,68,.08);}
+.admin-error-msg{font-size:12px;color:#f87171;margin-top:6px;display:none;}
+.admin-error-msg.show{display:block;}
+.admin-login-btn{width:100%;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;padding:14px 24px;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;transition:all .25s;box-shadow:0 0 24px rgba(20,71,230,.3);cursor:pointer;border:none;font-family:'Outfit',sans-serif;margin-top:8px;}
+.admin-login-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(20,71,230,.4);}
+.admin-login-btn:active{transform:translateY(0);}
+.admin-login-footer{text-align:center;margin-top:24px;font-size:12px;color:rgba(255,255,255,.25);}
+.admin-login-footer a{color:rgba(255,255,255,.45);text-decoration:none;cursor:pointer;}
+.admin-login-footer a:hover{color:var(--gold2);}
+
+/* ── ADMIN DASHBOARD ── */
+.admin-dashboard{min-height:calc(100vh - 96px);background:var(--off);display:none;}
+.admin-dashboard.active{display:block;}
+.admin-topbar{background:var(--ink);border-bottom:1px solid rgba(255,255,255,.06);padding:16px 4vw;display:flex;align-items:center;justify-content:space-between;}
+.admin-topbar-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#fff;}
+.admin-topbar-title span{color:var(--gold2);}
+.admin-topbar-user{display:flex;align-items:center;gap:12px;}
+.admin-topbar-badge{background:rgba(20,71,230,.2);border:1px solid rgba(20,71,230,.3);border-radius:20px;padding:4px 12px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--cyan);letter-spacing:.1em;}
+.admin-logout-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.5);padding:6px 14px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s;letter-spacing:.04em;}
+.admin-logout-btn:hover{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.3);color:#f87171;}
+.admin-body{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 160px);}
+.admin-sidebar{background:var(--ink);border-right:1px solid rgba(255,255,255,.06);padding:24px 0;}
+.admin-sidebar-section{padding:0 16px;margin-bottom:8px;}
+.admin-sidebar-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);padding:0 8px;margin-bottom:6px;display:block;}
+.admin-nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:7px;font-size:13px;font-weight:500;color:rgba(255,255,255,.45);cursor:pointer;transition:all .2s;margin-bottom:2px;border:none;background:none;width:100%;text-align:left;font-family:'Outfit',sans-serif;}
+.admin-nav-item:hover{color:#fff;background:rgba(255,255,255,.06);}
+.admin-nav-item.active{color:var(--gold2);background:rgba(245,158,11,.08);}
+.admin-nav-item .nav-icon{font-size:15px;width:20px;text-align:center;}
+.admin-content{padding:32px 4vw;background:var(--off);}
+.admin-section{display:none;}
+.admin-section.active{display:block;}
+.admin-section-header{margin-bottom:28px;}
+.admin-section-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.admin-section-kicker::before{content:'';width:16px;height:1.5px;background:currentColor;}
+.admin-section-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.admin-section-sub{font-size:13px;color:var(--muted);}
+.admin-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;}
+.admin-stat-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:20px;position:relative;overflow:hidden;}
+.admin-stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));}
+.admin-stat-icon{font-size:24px;margin-bottom:10px;display:block;}
+.admin-stat-num{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--ink);line-height:1;}
+.admin-stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;}
+.admin-card{background:#fff;border:1px solid var(--border);border-radius:10px;margin-bottom:20px;}
+.admin-card-header{padding:18px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.admin-card-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--ink);}
+.admin-card-body{padding:20px;}
+.admin-table{width:100%;border-collapse:collapse;}
+.admin-table th{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);}
+.admin-table td{padding:12px;font-size:13px;color:var(--sub);border-bottom:1px solid rgba(226,232,240,.5);}
+.admin-table tr:last-child td{border-bottom:none;}
+.admin-table tr:hover td{background:var(--off);}
+.admin-badge{display:inline-block;padding:3px 8px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.06em;}
+.admin-badge.green{background:rgba(13,148,136,.1);color:var(--teal);}
+.admin-badge.blue{background:rgba(20,71,230,.1);color:var(--blue);}
+.admin-badge.gold{background:rgba(245,158,11,.1);color:var(--gold);}
+.admin-badge.red{background:rgba(239,68,68,.1);color:#ef4444;}
+.admin-page-form{background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;}
+.admin-page-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.admin-field{margin-bottom:16px;}
+.admin-field label{display:block;font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--sub);margin-bottom:6px;}
+.admin-field input,.admin-field select,.admin-field textarea{width:100%;border:1px solid var(--border);border-radius:7px;padding:10px 12px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;transition:all .2s;outline:none;background:#fff;}
+.admin-field input:focus,.admin-field select:focus,.admin-field textarea:focus{border-color:var(--blue2);box-shadow:0 0 0 3px rgba(37,99,235,.1);}
+.admin-field textarea{resize:vertical;min-height:80px;}
+.admin-field-full{grid-column:1/-1;}
+.admin-form-actions{display:flex;gap:10px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border);}
+.admin-btn-primary{background:var(--blue);color:#fff;padding:10px 20px;border-radius:7px;font-size:12px;font-weight:600;letter-spacing:.04em;border:none;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s;}
+.admin-btn-primary:hover{background:var(--blue2);transform:translateY(-1px);}
+.admin-btn-secondary{background:var(--off);color:var(--sub);padding:10px 20px;border-radius:7px;font-size:12px;font-weight:600;letter-spacing:.04em;border:1px solid var(--border);cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s;}
+.admin-btn-secondary:hover{background:var(--off2);}
+.admin-btn-danger{background:rgba(239,68,68,.1);color:#ef4444;padding:10px 20px;border-radius:7px;font-size:12px;font-weight:600;letter-spacing:.04em;border:1px solid rgba(239,68,68,.2);cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s;}
+.admin-btn-danger:hover{background:rgba(239,68,68,.2);}
+.admin-pages-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.admin-page-item{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;transition:border-color .2s;}
+.admin-page-item:hover{border-color:var(--blue2);}
+.admin-page-item-info{display:flex;align-items:center;gap:10px;}
+.admin-page-item-icon{width:32px;height:32px;border-radius:6px;background:var(--off2);display:flex;align-items:center;justify-content:center;font-size:14px;}
+.admin-page-item-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--ink);}
+.admin-page-item-slug{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);}
+.admin-page-actions{display:flex;gap:6px;}
+.admin-icon-btn{width:28px;height:28px;border-radius:5px;border:1px solid var(--border);background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;transition:all .2s;}
+.admin-icon-btn:hover{background:var(--off);border-color:var(--blue2);}
+.admin-icon-btn.delete:hover{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.2);}
+.admin-success-toast{position:fixed;bottom:24px;right:24px;background:var(--teal);color:#fff;padding:12px 20px;border-radius:8px;font-size:13px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.2);transform:translateY(80px);opacity:0;transition:all .3s;z-index:9999;}
+.admin-success-toast.show{transform:translateY(0);opacity:1;}
+@media(max-width:900px){
+  .admin-body{grid-template-columns:1fr;}
+  .admin-sidebar{display:none;}
+  .admin-stats-grid{grid-template-columns:1fr 1fr;}
+  .admin-pages-list{grid-template-columns:1fr;}
+  .admin-page-form-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .admin-stats-grid{grid-template-columns:1fr;}
+  .admin-login-card{padding:32px 24px;}
+}
+
 /* ── SHARED ── */
 .section{padding:72px 4vw;}
 .section-kicker{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:14px;}
@@ -428,6 +542,7 @@ footer{background:var(--ink);padding:48px 4vw 28px;}
     <li><button onclick="showPage('process',this)">Process</button></li>
     <li><button onclick="showPage('pricing',this)">Pricing</button></li>
     <li><button onclick="showPage('contact',this)">Contact</button></li>
+    <li><button onclick="showPage('admin-login',this)" style="color:var(--gold2);">🔐 Admin</button></li>
   </ul>
   <div style="display:flex;align-items:center;gap:10px;">
     <div class="nav-social">
@@ -1055,7 +1170,463 @@ footer{background:var(--ink);padding:48px 4vw 28px;}
   </div>
 </footer>
 
+<!-- SUCCESS TOAST -->
+<div class="admin-success-toast" id="adminToast">✓ Action completed successfully</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: ADMIN LOGIN
+══════════════════════════════════════════════════════════ -->
+<div id="page-admin-login" class="page">
+  <div class="admin-login-wrap">
+    <div class="admin-grid-bg"></div>
+    <div class="admin-login-card">
+      <div class="admin-login-logo">
+        <div class="admin-login-logo-icon">🔐</div>
+        <div class="admin-login-logo-text">
+          PRO SCM
+          <span>ADMIN PORTAL</span>
+        </div>
+      </div>
+      <div class="admin-login-kicker">Secure Access</div>
+      <h2 class="admin-login-title">Admin Login</h2>
+      <p class="admin-login-sub">Sign in to manage your website pages and content.</p>
+
+      <div class="admin-form-group">
+        <label class="admin-form-label">Username / Email</label>
+        <input type="text" id="adminUsername" class="admin-form-input" placeholder="admin@proscm.in" autocomplete="username"/>
+        <div class="admin-error-msg" id="usernameError">Please enter your username.</div>
+      </div>
+      <div class="admin-form-group">
+        <label class="admin-form-label">Password</label>
+        <input type="password" id="adminPassword" class="admin-form-input" placeholder="••••••••" autocomplete="current-password"/>
+        <div class="admin-error-msg" id="passwordError">Please enter your password.</div>
+      </div>
+      <div class="admin-error-msg" id="loginError" style="font-size:13px;margin-bottom:10px;text-align:center;">Invalid credentials. Please try again.</div>
+      <button class="admin-login-btn" onclick="adminLogin()">Sign In to Dashboard →</button>
+      <div class="admin-login-footer">
+        <a onclick="showPage('home',null)">← Back to Website</a>
+        &nbsp;&nbsp;·&nbsp;&nbsp;
+        <a href="mailto:admin@proscm.in">Forgot password?</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ADMIN DASHBOARD (shown after login)
+══════════════════════════════════════════════════════════ -->
+<div id="page-admin-dashboard" class="page">
+  <!-- Top Bar -->
+  <div class="admin-topbar">
+    <div class="admin-topbar-title">PRO SCM <span>Admin</span></div>
+    <div class="admin-topbar-user">
+      <span class="admin-topbar-badge">● ADMIN</span>
+      <button class="admin-logout-btn" onclick="adminLogout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="admin-body">
+    <!-- Sidebar -->
+    <div class="admin-sidebar">
+      <div class="admin-sidebar-section">
+        <span class="admin-sidebar-label">Overview</span>
+        <button class="admin-nav-item active" onclick="switchAdminSection('dashboard',this)">
+          <span class="nav-icon">📊</span> Dashboard
+        </button>
+      </div>
+      <div class="admin-sidebar-section">
+        <span class="admin-sidebar-label">Content</span>
+        <button class="admin-nav-item" onclick="switchAdminSection('pages',this)">
+          <span class="nav-icon">📄</span> Manage Pages
+        </button>
+        <button class="admin-nav-item" onclick="switchAdminSection('add-page',this)">
+          <span class="nav-icon">➕</span> Add New Page
+        </button>
+      </div>
+      <div class="admin-sidebar-section">
+        <span class="admin-sidebar-label">Settings</span>
+        <button class="admin-nav-item" onclick="switchAdminSection('access',this)">
+          <span class="nav-icon">🔐</span> Access Control
+        </button>
+        <button class="admin-nav-item" onclick="switchAdminSection('settings',this)">
+          <span class="nav-icon">⚙️</span> Site Settings
+        </button>
+      </div>
+      <div class="admin-sidebar-section" style="margin-top:auto;">
+        <button class="admin-nav-item" onclick="showPage('home',null)" style="color:rgba(255,255,255,.3);">
+          <span class="nav-icon">🌐</span> View Website
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-content">
+
+      <!-- DASHBOARD SECTION -->
+      <div class="admin-section active" id="admin-section-dashboard">
+        <div class="admin-section-header">
+          <div class="admin-section-kicker">Overview</div>
+          <h2 class="admin-section-title">Dashboard</h2>
+          <p class="admin-section-sub">Welcome back! Here's your website at a glance.</p>
+        </div>
+
+        <div class="admin-stats-grid">
+          <div class="admin-stat-card">
+            <span class="admin-stat-icon">📄</span>
+            <div class="admin-stat-num" id="stat-pages">8</div>
+            <div class="admin-stat-label">Total Pages</div>
+          </div>
+          <div class="admin-stat-card">
+            <span class="admin-stat-icon">✅</span>
+            <div class="admin-stat-num" id="stat-published">8</div>
+            <div class="admin-stat-label">Published</div>
+          </div>
+          <div class="admin-stat-card">
+            <span class="admin-stat-icon">🔒</span>
+            <div class="admin-stat-num" id="stat-restricted">0</div>
+            <div class="admin-stat-label">Restricted</div>
+          </div>
+          <div class="admin-stat-card">
+            <span class="admin-stat-icon">👤</span>
+            <div class="admin-stat-num">1</div>
+            <div class="admin-stat-label">Admin Users</div>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div class="admin-card-title">Pages Overview</div>
+            <button class="admin-btn-primary" onclick="switchAdminSection('pages',document.querySelector('[onclick*=pages]'))">Manage All</button>
+          </div>
+          <div class="admin-card-body" style="padding:0;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Page Name</th>
+                  <th>Slug / ID</th>
+                  <th>Status</th>
+                  <th>Access</th>
+                </tr>
+              </thead>
+              <tbody id="dashboard-page-list">
+                <!-- filled by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- MANAGE PAGES SECTION -->
+      <div class="admin-section" id="admin-section-pages">
+        <div class="admin-section-header">
+          <div class="admin-section-kicker">Content Management</div>
+          <h2 class="admin-section-title">Manage Pages</h2>
+          <p class="admin-section-sub">View, edit access, or delete pages from your website.</p>
+        </div>
+
+        <div class="admin-pages-list" id="admin-pages-list">
+          <!-- filled by JS -->
+        </div>
+
+        <button class="admin-btn-primary" onclick="switchAdminSection('add-page',document.querySelector('[onclick*=add-page]'))">+ Add New Page</button>
+      </div>
+
+      <!-- ADD PAGE SECTION -->
+      <div class="admin-section" id="admin-section-add-page">
+        <div class="admin-section-header">
+          <div class="admin-section-kicker">Content Management</div>
+          <h2 class="admin-section-title">Add New Page</h2>
+          <p class="admin-section-sub">Create a new page and configure its access permissions.</p>
+        </div>
+
+        <div class="admin-page-form">
+          <div class="admin-page-form-grid">
+            <div class="admin-field">
+              <label>Page Name *</label>
+              <input type="text" id="new-page-name" placeholder="e.g. Case Studies"/>
+            </div>
+            <div class="admin-field">
+              <label>Page Slug / ID *</label>
+              <input type="text" id="new-page-slug" placeholder="e.g. case-studies"/>
+            </div>
+            <div class="admin-field">
+              <label>Page Icon (emoji)</label>
+              <input type="text" id="new-page-icon" placeholder="📋" maxlength="4"/>
+            </div>
+            <div class="admin-field">
+              <label>Access Level</label>
+              <select id="new-page-access">
+                <option value="public">Public — Everyone can view</option>
+                <option value="restricted">Restricted — Requires login</option>
+                <option value="admin">Admin Only</option>
+              </select>
+            </div>
+            <div class="admin-field admin-field-full">
+              <label>Page Description</label>
+              <textarea id="new-page-desc" placeholder="Brief description of this page…"></textarea>
+            </div>
+            <div class="admin-field">
+              <label>Status</label>
+              <select id="new-page-status">
+                <option value="published">Published</option>
+                <option value="draft">Draft</option>
+              </select>
+            </div>
+          </div>
+          <div class="admin-form-actions">
+            <button class="admin-btn-primary" onclick="addNewPage()">Create Page</button>
+            <button class="admin-btn-secondary" onclick="switchAdminSection('pages',null)">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCESS CONTROL SECTION -->
+      <div class="admin-section" id="admin-section-access">
+        <div class="admin-section-header">
+          <div class="admin-section-kicker">Security</div>
+          <h2 class="admin-section-title">Access Control</h2>
+          <p class="admin-section-sub">Manage admin credentials and page access permissions.</p>
+        </div>
+
+        <div class="admin-page-form">
+          <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border);">
+            <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px;">Change Admin Password</div>
+            <div style="font-size:13px;color:var(--muted);">Update your admin portal password.</div>
+          </div>
+          <div class="admin-page-form-grid">
+            <div class="admin-field">
+              <label>Current Password</label>
+              <input type="password" id="cur-pass" placeholder="••••••••"/>
+            </div>
+            <div class="admin-field">
+              <label>New Password</label>
+              <input type="password" id="new-pass" placeholder="••••••••"/>
+            </div>
+            <div class="admin-field">
+              <label>Confirm New Password</label>
+              <input type="password" id="conf-pass" placeholder="••••••••"/>
+            </div>
+          </div>
+          <div class="admin-form-actions">
+            <button class="admin-btn-primary" onclick="changePassword()">Update Password</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SETTINGS SECTION -->
+      <div class="admin-section" id="admin-section-settings">
+        <div class="admin-section-header">
+          <div class="admin-section-kicker">Configuration</div>
+          <h2 class="admin-section-title">Site Settings</h2>
+          <p class="admin-section-sub">Manage global website settings and navigation.</p>
+        </div>
+
+        <div class="admin-page-form">
+          <div class="admin-page-form-grid">
+            <div class="admin-field">
+              <label>Site Name</label>
+              <input type="text" value="PRO SCM Consultancy"/>
+            </div>
+            <div class="admin-field">
+              <label>Contact Email</label>
+              <input type="email" value="contact@proscm.in"/>
+            </div>
+            <div class="admin-field">
+              <label>WhatsApp Number</label>
+              <input type="text" value="+91 98765 43210"/>
+            </div>
+            <div class="admin-field">
+              <label>Default Language</label>
+              <select><option>English (India)</option><option>Hindi</option></select>
+            </div>
+            <div class="admin-field admin-field-full">
+              <label>Footer Tagline</label>
+              <input type="text" value="India's dedicated retail supply chain digitization partner."/>
+            </div>
+          </div>
+          <div class="admin-form-actions">
+            <button class="admin-btn-primary" onclick="showToast('Settings saved successfully!')">Save Settings</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end admin-content -->
+  </div><!-- end admin-body -->
+</div><!-- end page-admin-dashboard -->
+
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── ADMIN CREDENTIALS (change these) ── */
+const ADMIN_USER = 'admin';
+const ADMIN_PASS = 'ProSCM@2026';
+
+/* ── PAGE DATA ── */
+let adminPages = [
+  {id:'home',name:'Home',icon:'🏠',status:'published',access:'public'},
+  {id:'about',name:'About Us',icon:'👤',status:'published',access:'public'},
+  {id:'zoho',name:'Products',icon:'📦',status:'published',access:'public'},
+  {id:'services',name:'Services',icon:'⚙️',status:'published',access:'public'},
+  {id:'process',name:'Process',icon:'🔄',status:'published',access:'public'},
+  {id:'pricing',name:'Pricing',icon:'💰',status:'published',access:'public'},
+  {id:'contact',name:'Contact',icon:'📩',status:'published',access:'public'},
+  {id:'segments',name:'Segments',icon:'🎯',status:'published',access:'public'},
+];
+
+function adminLogin() {
+  const u = document.getElementById('adminUsername').value.trim();
+  const p = document.getElementById('adminPassword').value;
+  let valid = true;
+  document.getElementById('usernameError').classList.remove('show');
+  document.getElementById('passwordError').classList.remove('show');
+  document.getElementById('loginError').classList.remove('show');
+  document.getElementById('adminUsername').classList.remove('error');
+  document.getElementById('adminPassword').classList.remove('error');
+  if (!u) { document.getElementById('usernameError').classList.add('show'); document.getElementById('adminUsername').classList.add('error'); valid=false; }
+  if (!p) { document.getElementById('passwordError').classList.add('show'); document.getElementById('adminPassword').classList.add('error'); valid=false; }
+  if (!valid) return;
+  if ((u === ADMIN_USER || u === 'admin@proscm.in') && p === ADMIN_PASS) {
+    showPage('admin-dashboard', null);
+    renderDashboard();
+    renderPages();
+    updateStats();
+  } else {
+    document.getElementById('loginError').classList.add('show');
+    document.getElementById('adminUsername').classList.add('error');
+    document.getElementById('adminPassword').classList.add('error');
+  }
+}
+
+function adminLogout() {
+  document.getElementById('adminUsername').value = '';
+  document.getElementById('adminPassword').value = '';
+  showPage('admin-login', null);
+}
+
+function switchAdminSection(id, btn) {
+  document.querySelectorAll('.admin-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('admin-section-'+id).classList.add('active');
+  document.querySelectorAll('.admin-nav-item').forEach(b=>b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+}
+
+function updateStats() {
+  document.getElementById('stat-pages').textContent = adminPages.length;
+  document.getElementById('stat-published').textContent = adminPages.filter(p=>p.status==='published').length;
+  document.getElementById('stat-restricted').textContent = adminPages.filter(p=>p.access!=='public').length;
+}
+
+function renderDashboard() {
+  const tbody = document.getElementById('dashboard-page-list');
+  tbody.innerHTML = adminPages.map(p=>`
+    <tr>
+      <td><strong style="color:var(--ink)">${p.icon} ${p.name}</strong></td>
+      <td><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">#${p.id}</span></td>
+      <td><span class="admin-badge ${p.status==='published'?'green':'gold'}">${p.status}</span></td>
+      <td><span class="admin-badge ${p.access==='public'?'blue':p.access==='admin'?'red':'gold'}">${p.access}</span></td>
+    </tr>`).join('');
+}
+
+function renderPages() {
+  const list = document.getElementById('admin-pages-list');
+  list.innerHTML = adminPages.map((p,i)=>`
+    <div class="admin-page-item">
+      <div class="admin-page-item-info">
+        <div class="admin-page-item-icon">${p.icon}</div>
+        <div>
+          <div class="admin-page-item-name">${p.name}</div>
+          <div class="admin-page-item-slug">#${p.id} · <span class="admin-badge ${p.access==='public'?'blue':'gold'}" style="font-size:9px">${p.access}</span></div>
+        </div>
+      </div>
+      <div class="admin-page-actions">
+        <button class="admin-icon-btn" onclick="editPage(${i})" title="Edit access">✏️</button>
+        <button class="admin-icon-btn delete" onclick="deletePage(${i})" title="Remove page" ${['home','contact'].includes(p.id)?'disabled style="opacity:.3;cursor:not-allowed"':''}>🗑️</button>
+      </div>
+    </div>`).join('');
+}
+
+function editPage(i) {
+  const p = adminPages[i];
+  const newAccess = prompt(`Set access for "${p.name}":\n\n• public\n• restricted\n• admin\n\nCurrent: ${p.access}`, p.access);
+  if (newAccess && ['public','restricted','admin'].includes(newAccess.toLowerCase())) {
+    adminPages[i].access = newAccess.toLowerCase();
+    renderPages();
+    renderDashboard();
+    updateStats();
+    showToast(`Access for "${p.name}" updated to "${newAccess}"`);
+  } else if (newAccess !== null) {
+    alert('Invalid access level. Use: public, restricted, or admin');
+  }
+}
+
+function deletePage(i) {
+  const p = adminPages[i];
+  if (confirm(`Remove "${p.name}" from the admin list?\n\nNote: This only removes it from admin tracking, not from the website.`)) {
+    adminPages.splice(i,1);
+    renderPages();
+    renderDashboard();
+    updateStats();
+    showToast(`"${p.name}" removed from page list`);
+  }
+}
+
+function addNewPage() {
+  const name = document.getElementById('new-page-name').value.trim();
+  const slug = document.getElementById('new-page-slug').value.trim().toLowerCase().replace(/\s+/g,'-');
+  const icon = document.getElementById('new-page-icon').value.trim() || '📄';
+  const access = document.getElementById('new-page-access').value;
+  const status = document.getElementById('new-page-status').value;
+  if (!name || !slug) { alert('Page Name and Slug are required.'); return; }
+  if (adminPages.find(p=>p.id===slug)) { alert('A page with this slug already exists.'); return; }
+  adminPages.push({id:slug, name, icon, status, access});
+  document.getElementById('new-page-name').value='';
+  document.getElementById('new-page-slug').value='';
+  document.getElementById('new-page-icon').value='';
+  renderPages();
+  renderDashboard();
+  updateStats();
+  showToast(`Page "${name}" created successfully!`);
+  switchAdminSection('pages', null);
+}
+
+function changePassword() {
+  const cur = document.getElementById('cur-pass').value;
+  const nw = document.getElementById('new-pass').value;
+  const cf = document.getElementById('conf-pass').value;
+  if (cur !== ADMIN_PASS) { alert('Current password is incorrect.'); return; }
+  if (!nw || nw.length < 6) { alert('New password must be at least 6 characters.'); return; }
+  if (nw !== cf) { alert('New passwords do not match.'); return; }
+  // In a real app, this would update the server — here we just show success
+  showToast('Password updated! (Note: Refresh will reset to default in this demo)');
+  document.getElementById('cur-pass').value='';
+  document.getElementById('new-pass').value='';
+  document.getElementById('conf-pass').value='';
+}
+
+function showToast(msg) {
+  const t = document.getElementById('adminToast');
+  t.textContent = '✓ '+msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+// Auto-slug from name
+document.addEventListener('DOMContentLoaded', function() {
+  const nameInput = document.getElementById('new-page-name');
+  const slugInput = document.getElementById('new-page-slug');
+  if (nameInput && slugInput) {
+    nameInput.addEventListener('input', function() {
+      if (!slugInput.dataset.manual) {
+        slugInput.value = this.value.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
+      }
+    });
+    slugInput.addEventListener('input', function() {
+      this.dataset.manual = '1';
+    });
+  }
+  // Add admin login on Enter key
+  document.getElementById('adminPassword') && document.getElementById('adminPassword').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') adminLogin();
+  });
+});
 function showPage(id, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
